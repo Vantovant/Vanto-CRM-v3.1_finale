@@ -1,0 +1,20 @@
+
+PROFESSIONAL UPGRADE — City free text + Picklists enforced (Registration/Lead Type/Associate Status)
+
+✔ City is now plain text everywhere (no dropdown). Existing city filters remain value-driven from data.
+✔ Registration Status dropdown now has four options: Activated, Registered, Not Registered, To Be Registered.
+✔ Lead Type is now a dropdown with: Customer, Distributor.
+✔ Associate Status is now a dropdown with: Promoter, Associate, Builder, Mentor, VIP, Diamond.
+✔ Import normalization:
+    - Maps synonyms (e.g., "to be registered", "TBR" → To Be Registered).
+    - Normalizes Lead Type to Customer/Distributor.
+    - Normalizes Associate Status to the six labels; unknowns are left blank.
+    - A non-blocking warning summarizes how many rows were blanked for each field.
+✔ Database unchanged (all TEXT). No migration required.
+
+Acceptance checks:
+  - You can type any City value (e.g., "Johannesburg South") in Add/Edit and save it.
+  - Registration Status shows the four options including "To Be Registered".
+  - Lead Type shows only "Customer" and "Distributor".
+  - Associate Status shows the six options listed above.
+  - Import accepts any City text and summarizes unknown picklist values without failing.
